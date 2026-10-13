@@ -1,0 +1,6 @@
+{
+  "name": "LogoMotion AI - Brand Identity & Motion Studio",
+  "description": "Design high-resolution brand logos with Gemini 3 Pro and bring them to life with cinematic Veo video animations, brand mockups, and real-time motion controls.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
