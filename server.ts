@@ -1,3 +1,4 @@
+import { localApiOnly } from './local-api-guard.mjs';
 import express, { Request, Response } from 'express';
 import { createServer as createViteServer } from 'vite';
 import path from 'path';
@@ -7,6 +8,7 @@ import { GoogleGenAI, GenerateVideosOperation } from '@google/genai';
 dotenv.config();
 
 const app = express();
+app.use('/api', localApiOnly(() => PORT));
 const PORT = process.env.PORT || 3000;
 
 // Parse JSON bodies up to 25MB for handling high-resolution 1K/2K/4K images
@@ -321,7 +323,7 @@ async function startServer() {
     });
   }
 
-  app.listen(Number(PORT), '0.0.0.0', () => {
+  app.listen(Number(PORT), '127.0.0.1', () => {
     console.log(`LogoMotion server listening on port ${PORT}`);
   });
 }
